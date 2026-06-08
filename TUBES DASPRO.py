@@ -93,15 +93,28 @@ def lihat_data():
 
 def tambah_data():
     while True:
+        print ("===Pilihan Layanan===")
+        print("   1. Reguler   ")
+        print("   2. Express   ")
         global nama, berat, layanan
         print("===Input Laundry===")
         pelanggan=int(input("Jumlah Pelanggan: "))
         for i in range (0,pelanggan,1):
             nama[i]=str(input("Nama  : "))
             berat[i]=float(input("Berat  : "))
-            layanan[i]=str(input("Layanan  : "))
-        
-    return
+            while True:
+                pilih = int(input("Pilih layanan (1/2): "))
+                if pilih==1:
+                    layanan[i]="Reguler"
+                    break
+                elif pilih ==2:
+                    layanan[i]="Express"
+                    break
+                else: 
+                    print("Layanan tidak valid")
+        print("Data berhasil dimasukkan")
+        break
+    return nama,berat,layanan
 
 def cetak_struk():
     return
@@ -124,10 +137,10 @@ def main ():
     login(username, password)
 
 if __name__=='__main__':
-    invoice=[]
-    nama=[]
-    layanan=[]
-    berat=[]
-    harga=[]
-    status=[]
+    invoice=1000*[None]
+    nama=1000*[None]
+    layanan=1000*[None]
+    berat=1000*[None]
+    harga=1000*[None]
+    status=1000*[None]
     main()
